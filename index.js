@@ -13,11 +13,13 @@ module.exports = {
 		if(element == null || text == null) {
 			return undefined;
 		}
-		return element.getText().then(function(text) {
-			if (text.indexOf(against) != -1) {
-				return true;
-			}
-			return false;
+		return new Promise(function(resolve, reject) {
+			element.getText().then(function(text) {
+				if (text.indexOf(against) != -1) {
+					resolve(true);
+				}
+				reject(false);
+			});
 		});
 	},
 
