@@ -1,6 +1,6 @@
 {
   "name": "protractor_plus",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Some helper methods for dealing with protractor tests.",
   "main": "index.js",
   "scripts": {
