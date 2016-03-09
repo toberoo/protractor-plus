@@ -1,6 +1,6 @@
 {
   "name": "protractor-plus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Some helper methods for dealing with protractor tests.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/toberoo/protractor_plus.git"
+    "url": "https://github.com/toberoo/protractor-plus.git"
   },
   "author": "Shehroze Khan <ShehrozeKh@gmail.com>",
   "license": "ISC",
