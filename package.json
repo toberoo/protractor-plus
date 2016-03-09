@@ -4,7 +4,7 @@
   "description": "Some helper methods for dealing with protractor tests.",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/protractor/bin/protractor test/conf.js"
+    "test": "node test/node_modules/protractor/bin/protractor test/conf.js"
   },
   "keywords": [
     "protractor",
