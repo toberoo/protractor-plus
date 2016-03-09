@@ -1,8 +1,8 @@
 Helper Functions to deal with protractor testing.
 
 **Example usage in protractor conf file.**
-	var plus = require('protractor_plus');
 
+	var plus = require('protractor_plus');
 	module.exports= = {
 		onPrepare: function() {
 			/Will add all methods to global object
@@ -11,8 +11,8 @@ Helper Functions to deal with protractor testing.
 	}
 
 **If an item is passed, most likely global, will add all helper methods to that method. Otherwise, just call the function and refrence each method, i.e.:**
-	var plus = require('protractor_plus')();
 
+	var plus = require('protractor_plus')();
 	it('sleep', function() {
 		plus.sleep();
 	});
@@ -20,22 +20,22 @@ Helper Functions to deal with protractor testing.
 
 **Available Functions**
 
-	-**Sleep for time or default for 3000ms**
+**Sleep for time or default for 3000ms**
 
-		sleep(time);
+	sleep(time);
 
-	-**If element contains text, promise that resolve otherwise promise that rejects.**
+**If element contains text, promise that resolve otherwise promise that rejects.**
 
-		elementContainsText(element, text)
+	elementContainsText(element, text)
 
- 	-**Returns a promise that resolve the element in elements, 'elements.all'. If strict is true, then will check text exactly, otherwise uses a contains.**
+ **Returns a promise that resolve the element in elements, 'elements.all'. If strict is true, then will check text exactly, otherwise uses a contains.**
 
-		elementFromText(elements, text, strict)
+	elementFromText(elements, text, strict)
 
- 	-**Stall protractor un til element is visible. Works for element.all as well. If no timeout, default to 3000ms**
+ **Stall protractor un til element is visible. Works for element.all as well. If no timeout, default to 3000ms**
 
-		waitFor(element, timeout)
+	waitFor(element, timeout)
 
-	-**Like above but invisible.**
+**Like above but invisible.**
 
-		waitInvisible(element, timeout)
+	waitInvisible(element, timeout)
