@@ -1,4 +1,4 @@
-Helper Functions to deal with protractor testing.
+Helper Functions to deal with protractor testing. All of them return a promise.
 
 **Example usage in protractor conf file.**
 
@@ -32,6 +32,10 @@ Helper Functions to deal with protractor testing.
 
 	elementFromText(elements, text, strict)
 
+**Returns a promise that resolves if the element has a text, rejects otherwise No value means it will only check for existence, value match otherwise**
+
+	elementHasAttribute(element, attribute, value)
+
  **Stall protractor un til element is visible. Works for element.all as well. If no timeout, default to 3000ms**
 
 	waitFor(element, timeout)
@@ -39,3 +43,16 @@ Helper Functions to deal with protractor testing.
 **Like above but invisible.**
 
 	waitInvisible(element, timeout)
+
+
+**Click an element that is not currently viewable by browser**
+
+	clickOutOfView(element)
+
+**Make the mouse hover over an element**
+
+	mouseOver(element);
+
+**Scroll the browser's view over the element**
+
+	scrollIntoView(element);

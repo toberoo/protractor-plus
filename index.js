@@ -117,10 +117,41 @@ module.exports = function(global) {
 			3000
 		);
 	}
+    //Click an element that is not in view to the user.
+    this.clickOutOfView = function(el) {
+
+        return browser.executeScript(function() {
+            arguments[0].click();
+
+        }, el.getWebElement());
+    }
+
+    //Move the mouse over an element
+    this.mouseOver = function(el) {
+        browser.actions().mouseMove(el).perform();
+        return browser.driver.sleep(200);
+    }
+
+    //Scrolls the element into view
+    this.scrollIntoView = function(el) {
+        return browser.executeScript(function() {
+                arguments[0].scrollIntoView(true);
+        }, el.getWebElement());
+    }
 
 	//If global is
 	if (global != undefined) {
 		global.sleep = this.sleep;
+
 		global.elementContainsText = this.elementContainsText;
+		global.elementFromText = this.elementFromText;
+		global.elementHasAttribute = this.elementHasAttribute;
+
+		global.waitFor = this.waitFor;
+		global.waitInvisible = this.waitInvisible;
+
+		global.clickOutOfView = this.clickOutOfView;
+		global.mouseOver = this.mouseOver;
+		global.scrollIntoView = this.scrollIntoView;
 	}
 }
