@@ -1,5 +1,3 @@
-Helper Functions to deal with protractor testing. All of them return a promise.
-
 **Example usage in protractor conf file.**
 
 	var plus = require('protractor_plus');
@@ -36,7 +34,7 @@ Helper Functions to deal with protractor testing. All of them return a promise.
 
 	elementFromAttribute(attribute, value);
 
-**Returns a promise that resolves if the element has a text, rejects otherwise No value means it will only check for existence, value match otherwise**
+**Returns a promise that resolves if the element has attribute and value, rejects otherwise No value means it will only check for existence, value match otherwise**
 
 	elementHasAttribute(element, attribute, value)
 
