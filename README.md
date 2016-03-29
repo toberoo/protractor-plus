@@ -32,6 +32,10 @@ Helper Functions to deal with protractor testing. All of them return a promise.
 
 	elementFromText(elements, text, strict)
 
+**DOES NOT RETURN a promise, returns an element based on the attribute provided**
+
+	elementFromAttribute(attribute, value);
+
 **Returns a promise that resolves if the element has a text, rejects otherwise No value means it will only check for existence, value match otherwise**
 
 	elementHasAttribute(element, attribute, value)

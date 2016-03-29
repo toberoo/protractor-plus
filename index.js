@@ -51,6 +51,16 @@ module.exports = function(global) {
 		});
 	}
 
+	//Does not return a promise
+	this.elementFromAttribute = function(attribute, value) {
+		//Validation
+		if (element == null || attribute == null) {
+			return undefined;
+		}
+		var selector = '[' + attribute + '="' + value + '"]';
+		return element(by.css(selector));
+	}
+
 	//Find element from an element.all object that has against text.
 	this.elementFromText = function(elements, against, strict) {
 
@@ -145,6 +155,7 @@ module.exports = function(global) {
 
 		global.elementContainsText = this.elementContainsText;
 		global.elementFromText = this.elementFromText;
+		global.elementFromAttribute = this.elementFromAttribute;
 		global.elementHasAttribute = this.elementHasAttribute;
 
 		global.waitFor = this.waitFor;

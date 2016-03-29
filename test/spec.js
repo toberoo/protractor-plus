@@ -61,6 +61,15 @@ describe('Test Protractor Plus with Protractor !', function() {
 		});
 	});
 
+	it ('Element from attribute', function(done) {
+
+		var el = elementFromAttribute('title', 'English — Wikipedia — The Free Encyclopedia');
+		el.getText().then(function(text) {
+			expect(text.indexOf('English')).not.toBe(-1);
+			done();
+		});
+	});
+
 	it('Wait For', function(done) {
 
 		//Click link
