@@ -18,6 +18,7 @@
 
 
 **Available Functions**
+	
 	/*Sleep for time or default for 3000ms*/
 	sleep(time);
 
