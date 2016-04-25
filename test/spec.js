@@ -70,6 +70,18 @@ describe('Test Protractor Plus with Protractor !', function() {
 		});
 	});
 
+	it ('Element has attribute', function(done) {
+		var el = elementFromAttribute('title', 'English — Wikipedia — The Free Encyclopedia');
+		elementHasAttribute(el, 'title', 'English — Wikipedia — The Free Encyclopedia')
+		.then(function() {
+			expect(true).toBe(true);
+			done();
+		}, function() {
+			expect(false).toBe(false);
+			done();
+		});
+	});
+
 	it('Wait For', function(done) {
 
 		//Click link
