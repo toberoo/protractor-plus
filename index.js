@@ -121,10 +121,11 @@ module.exports = function(global) {
 		});
 	}
 
-	this.waitInvisible = function (element) {
+	this.waitInvisible = function (element, timout) {
+		timeout = timeout || 3000;
 		return browser.driver.wait(
 			protractor.until.elementIsNotVisible(element),
-			3000
+			timeout
 		);
 	}
     //Click an element that is not in view to the user.
