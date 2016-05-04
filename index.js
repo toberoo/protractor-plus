@@ -121,7 +121,7 @@ module.exports = function(global) {
 		});
 	}
 
-	this.waitInvisible = function (element, timout) {
+	this.waitInvisible = function (element, timeout) {
 		timeout = timeout || 3000;
 		return browser.driver.wait(
 			protractor.until.elementIsNotVisible(element),
