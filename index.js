@@ -1,6 +1,50 @@
 var Promise = require('promise');
 
-module.exports = function(global) {
+function redacted(){};
+
+module.exports = function(protractor) {
+	if (protractor == null) return;
+	var ElementFinder = protractor.ElementFinder;
+	var ElementArrayFinder = protractor.ElementArrayFinder;
+
+	//Support the old version. This should be phased out, but this is a massive change.
+	//Let's try to ease people into version 2.
+	if (ElementFinder === undefined) {
+		return redacted(this.global);
+	}
+
+	//Add global methods
+	this.global.sleep = function(time) {
+		var timeout = time || this.default || 2000;
+		//Returns promise
+		return browser.driver.sleep(timeout);
+	}
+
+	//Add containsText
+	function containsText(against) {
+		var self = this;
+		return new Promise(function(resolve, reject) {
+			self.getText().then(function(text) {
+				if (text.indexOf(against) != -1) {
+					//Resolves if it works
+					resolve(true);
+				}
+				//Reject if it doesn't
+				reject(false);
+			});
+		});
+	}
+	ElementFinder.prototype.containsText = containsText;
+	ElementArrayFinder.prototype.containsText = containsText;
+
+	//Add elementHasAttribute
+	function hasAttribute(attr, val) {
+		
+	}
+}
+
+/*
+function redacted(global) {
 
 	this.sleep = function(time) {
 		//Defaults to 2000
@@ -165,4 +209,4 @@ module.exports = function(global) {
 		global.mouseOver = this.mouseOver;
 		global.scrollIntoView = this.scrollIntoView;
 	}
-}
+}*/

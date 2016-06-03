@@ -1,4 +1,3 @@
-
 describe('Test Protractor Plus with Protractor !', function() {
 
 	it('Sleep Function', function(done) {
@@ -25,12 +24,12 @@ describe('Test Protractor Plus with Protractor !', function() {
 		var englishLink = element(by.css('.central-featured-lang.lang1'));
 
 		//Test a true statement
-		elementContainsText(englishLink, 'English').then(function(val) {
+		englishLink.containsText('English').then(function(val) {
 
 			expect(val).toBe(true);
 
 			//Test a false statement
-			elementContainsText(englishLink, 'Hispanic').then(
+			englishLink.containsText('Hispanic').then(
 				//Should not run
 				function(val) {expect(val).toBe(false); done();},
 				//Should run
@@ -60,7 +59,7 @@ describe('Test Protractor Plus with Protractor !', function() {
 			});
 		});
 	});
-
+	/*
 	it ('Element from attribute', function(done) {
 
 		var el = elementFromAttribute('title', 'English — Wikipedia — The Free Encyclopedia');
@@ -76,4 +75,5 @@ describe('Test Protractor Plus with Protractor !', function() {
 		waitFor(element(by.css('.central-featured-lang.lang1')));
 		done();
 	});
+	*/
 });

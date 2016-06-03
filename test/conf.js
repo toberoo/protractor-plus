@@ -1,4 +1,5 @@
-var plus = require(__dirname + '/../index.js');
+var protractor = require('protractor');
+var plus = require(__dirname + '/../index');
 
 exports.config = {
 	seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -11,6 +12,8 @@ exports.config = {
 		//Test on a stable website
 		browser.ignoreSynchronization = true;
 		browser.get('https://www.wikipedia.org');
-		plus(global);
+		plus(protractor);
+
 	}
+
 };
