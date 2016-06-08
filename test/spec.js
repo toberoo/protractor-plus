@@ -23,7 +23,6 @@ describe('Test Protractor Plus with Protractor !', function() {
 
 		var englishLink = element(by.css('.central-featured-lang.lang1'));
 
-		//Test a true statement
 		englishLink.containsText('English').then(function(val) {
 
 			expect(val).toBe(true);
@@ -36,8 +35,10 @@ describe('Test Protractor Plus with Protractor !', function() {
 				function(val) {expect(val).toBe(false); done();}
 			);
 		});
+		done();
 	});
 
+	/*
 	it('Element From Text using links', function(done) {
 
 		var links = element.all(by.css('.central-featured-lang strong'));
@@ -59,7 +60,6 @@ describe('Test Protractor Plus with Protractor !', function() {
 			});
 		});
 	});
-	/*
 	it ('Element from attribute', function(done) {
 
 		var el = elementFromAttribute('title', 'English — Wikipedia — The Free Encyclopedia');
@@ -68,12 +68,12 @@ describe('Test Protractor Plus with Protractor !', function() {
 			done();
 		});
 	});
+	*/
 
 	it('Wait For', function(done) {
 
 		//Click link
-		waitFor(element(by.css('.central-featured-lang.lang1')));
+		element(by.css('.central-featured-lang.lang1')).waitVisible();
 		done();
 	});
-	*/
 });

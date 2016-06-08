@@ -1,4 +1,3 @@
-var protractor = require('protractor');
 var plus = require(__dirname + '/../index');
 
 exports.config = {
@@ -12,8 +11,6 @@ exports.config = {
 		//Test on a stable website
 		browser.ignoreSynchronization = true;
 		browser.get('https://www.wikipedia.org');
-		plus(protractor);
-
+		plus(require('protractor'));
 	}
-
 };

@@ -20,7 +20,7 @@ module.exports = function(protractor) {
 		return browser.driver.sleep(timeout);
 	}
 
-	//Add containsText
+	//Resolves true if element or elements contain text
 	function containsText(against) {
 		var self = this;
 		return new Promise(function(resolve, reject) {
@@ -37,9 +37,30 @@ module.exports = function(protractor) {
 	ElementFinder.prototype.containsText = containsText;
 	ElementArrayFinder.prototype.containsText = containsText;
 
-	//Add elementHasAttribute
-	function hasAttribute(attr, val) {
-		
+	//Makes selenium wait until element is visible
+	ElementFinder.prototype.waitVisible = function(timeoutOverride) {
+		if (this.defaultTimeout == undefined) this.defaultTimeout = 2000;
+		var self = this;
+		var timeout = timeoutOverride || this.defaultTimeout;
+		return new Promise(function(resolve, reject) {
+			browser.wait(function() {
+				return self.isPresent();
+			}, timeout).then(resolve);
+		});
+	}
+
+	//Make selenium wait until elements are present.
+	ElementArrayFinder.prototype.waitVisible = function(timeoutOverride) {
+		if (this.defaultTimeout == undefined) this.defaultTimeout = 2000;
+		var self = this;
+		var timeout = timeoutOverride || this.defaultTimeout;
+		return new Promise(function(resolve, reject) {
+			browser.wait(function() {
+		       return self.count(function (count) {
+		            return count > 0;
+		        });
+			}, timeout).then(resolve);
+		});
 	}
 }
 
